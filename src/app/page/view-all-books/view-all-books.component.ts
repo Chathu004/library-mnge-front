@@ -45,6 +45,15 @@ export class ViewAllBooksComponent implements OnInit{
     console.log("selectedBook"+book.id);
     
   }
+  saveBook(){
+    let postApi = "http://localhost:8080/book/add";
+    this.http.post(postApi,this.selectedBook).subscribe(data=>{
+      console.log("saved!");
+      this.loadBooks();
+      this.selectedBook={};
+      
+    });
+  }
 
 
 }
