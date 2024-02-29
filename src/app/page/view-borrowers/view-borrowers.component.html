@@ -12,14 +12,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+         <!-- iterate the borrowList Array -->
+         <tr *ngFor="let borrowers of borrowersList">
+
+          <td>{{borrowers.id}}</td>
+          <td>{{borrowers.bid}}</td>
+          <td>{{borrowers.address}}</td>
+          <td>{{borrowers.contact}}</td>
+          <td>{{borrowers.name}}</td>
+          <td>{{borrowers.nic}}</td>
   
-          <td>dfghj</td>
-          <td>xcvbn</td>
-          <td>sdfghj</td>
-          <td>dfghj</td>
-          <td>qwsdfghj</td>
-          <td>wdfghj</td>
+         
           <td><button data-bs-toggle="modal" data-bs-target="#deleteModal"
               class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
           <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal"
