@@ -72,7 +72,7 @@
               <option value="">Choose...</option>
               <option *ngFor="let country of countryList" [value]="country.name.common" (click)="setSelectedCountry(country);">{{country.flag}}&nbsp;{{country.name.common}}</option>
             </select>
-            <div class="invalid-feedback">
+            <div class="invalid-feedback!">
               Please select a valid country.
             </div>
           </div>
