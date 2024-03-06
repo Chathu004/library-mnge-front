@@ -12,22 +12,22 @@ import { CommonModule } from '@angular/common';
   styleUrl: './view-borrowers.component.css'
 })
 export class ViewBorrowersComponent implements OnInit {
-  private http;
-  public borrowersList : any={};
+  // private http;
+  public borrowersList : any;
 
-  constructor(private httpClient : HttpClient){
-    this.http = httpClient;
-  }
-
-
+  constructor(private http : HttpClient){}
   ngOnInit(): void {
     this.loadBorrowers();
   }
   loadBorrowers() {
-    this.http.get(`http://localhost:8080/borrowers/get`).subscribe((data)=>{
-      this.borrowersList = data;
-      console.log(this.borrowersList);
+    this.http.get(`http://localhost:8081/borrower/get`).subscribe((res:any)=>{
+      console.log(res);
+      this.borrowersList = res;
   });
 
 }
-}
+  }
+
+
+  
+
