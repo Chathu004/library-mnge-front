@@ -4,13 +4,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { NavComponent } from "../../common/nav/nav.component";
 
 @Component({
-  selector: 'app-view-borrowers',
-  standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule],
-  templateUrl: './view-borrowers.component.html',
-  styleUrl: './view-borrowers.component.css'
+    selector: 'app-view-borrowers',
+    standalone: true,
+    templateUrl: './view-borrowers.component.html',
+    styleUrl: './view-borrowers.component.css',
+    imports: [HttpClientModule, FormsModule, CommonModule, NavComponent]
 })
 export class ViewBorrowersComponent implements OnInit {
   // private http;
@@ -54,6 +55,14 @@ export class ViewBorrowersComponent implements OnInit {
 
   }
   saveBorrower() {
+    this.http.post(this.baseURL + "/borrower/add",this.selectedBorrower).subscribe((res:any)=>{
+      this.loadBorrowers();
+      Swal.fire({ 
+        title:"Updated!",
+        text:`You updated${this.selectedBorrower.userName} user is updated!` ,
+        icon:"success"
+      })
+    })
 
   }
   setSelectedBorrower(borrower: any) {
