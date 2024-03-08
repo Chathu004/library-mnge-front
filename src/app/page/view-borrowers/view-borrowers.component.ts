@@ -72,7 +72,6 @@ export class ViewBorrowersComponent implements OnInit {
   }
 }
 
-// you have 35 min stop video 1.00
 
 
 
